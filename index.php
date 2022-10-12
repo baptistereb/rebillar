@@ -53,7 +53,7 @@ $percent = 100*($now-$first_day)/($last_day-$first_day);
 		Début d'année : <b><?= date("d/m/Y", $first_day) ?></b><br>
 		Date actuelle : <b><?= date("d/m/Y", $now) ?></b><br>
 		Fin d'année : <b><?= date("d/m/Y", $last_day) ?></b><br>
-		Vous en êtes à <b><?= round($percent, 2) ?>%</b> de la MIC, félicitation !<br><br>
+		Vous en êtes à <b><?= round($percent, 2) ?>%</b> de la MIC, félicitations !<br><br>
 
 		<div class="bar">
 			<div class="percentage has-tip"  style="width: <?= $percent ?>%" data-perc="50%"></div>
