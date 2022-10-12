@@ -28,7 +28,7 @@ $percent = 100*($now-$first_day)/($last_day-$first_day);
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Test</title>
+	<title>LES MIC !!!!!</title>
 	<style>
 		.bar {
 			width: 30em;
