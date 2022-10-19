@@ -48,10 +48,7 @@ $percent = 100*($now-$first_day)/($last_day-$first_day);
 	</style>
 </head>
 <body>
-	
 	<main>
-		
-		<main>
 
 		Début d'année : <b><?= date("d/m/Y", $first_day) ?></b><br>
 		Date actuelle : <b><?= date("d/m/Y", $now) ?></b><br>
@@ -77,7 +74,6 @@ $percent = 100*($now-$first_day)/($last_day-$first_day);
 		<br><br>
 
 		<a href="?logout=">Se déconnecter</a><br><br>
-	</main>
 	</main>
 </body>
 </html>
