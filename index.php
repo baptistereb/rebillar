@@ -48,12 +48,27 @@ $percent = 100*($now-$first_day)/($last_day-$first_day);
 	</style>
 </head>
 <body>
+	
 	<main>
+		
+		<main>
 
 		Début d'année : <b><?= date("d/m/Y", $first_day) ?></b><br>
 		Date actuelle : <b><?= date("d/m/Y", $now) ?></b><br>
 		Fin d'année : <b><?= date("d/m/Y", $last_day) ?></b><br>
-		Vous en êtes à <b><?= round($percent, 2) ?>%</b> de la MIC, félicitations !<br><br>
+
+		<?php
+		//var_dump(phpCAS::getAttributes()); 
+		$memberOfCN = phpCAS::getAttributes()["memberOfCN"];
+
+		foreach($memberOfCN as $i) {
+			if(strpos($i, "sve_2_mic") !== FALSE) {
+				echo "Vous en êtes à <b>".round(.$percent, 2)."%</b> de la MIC, félicitations !<br><br>";
+			} else {
+				echo "Vous en êtes à <b>".round(.$percent, 2)."%</b> de l'année, félicitations ! (Vous n'êtes pas en MIC donc la date de fin d'année ... je ne la connais pas)<br><br>";
+			}
+		}
+		?>
 
 		<div class="bar">
 			<div class="percentage has-tip"  style="width: <?= $percent ?>%" data-perc="50%"></div>
@@ -63,16 +78,6 @@ $percent = 100*($now-$first_day)/($last_day-$first_day);
 
 		<a href="?logout=">Se déconnecter</a><br><br>
 	</main>
-	
-	<?php
-	//var_dump(phpCAS::getAttributes()); 
-	/*$memberOfCN = phpCAS::getAttributes()["memberOfCN"];
-
-	foreach($memberOfCN as $i) {
-		if(strpos($i, "sve_2_mic") !== FALSE) {
-			echo "<b><font color='red'>Tu est en 2MIC : ".$i."</font><br></b>";
-		}
-	}*/
-	?><br>
+	</main>
 </body>
 </html>
