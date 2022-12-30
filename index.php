@@ -59,14 +59,15 @@ include "bouton.php";
 		<?php
 		if($env != "LOCAL") {
 			$memberOfCN = phpCAS::getAttributes()["memberOfCN"];
+			echo "Vous en êtes à <b>".round($percent, 2)."%</b> de la MIC, félicitations !<br><br>";
 
-			foreach($memberOfCN as $i) {
+			/*foreach($memberOfCN as $i) {
 				if(strpos($i, "sve_2_mic") != FALSE) {
 					echo "Vous en êtes à <b>".round($percent, 2)."%</b> de la MIC, félicitations !<br><br>";
 				} else {
 					echo "Vous en êtes à <b>".round($percent, 2)."%</b> de l'année, félicitations ! (Vous n'êtes pas en MIC donc la date de fin d'année ... je ne la connais pas)<br><br>";
 				}
-			}
+			}*/
 		}
 		?>
 
