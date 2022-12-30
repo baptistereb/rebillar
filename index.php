@@ -22,6 +22,8 @@ $first_day = mktime(0, 0, 0, 9, 12, 2022); //$hour, $minute, $second, $month, $d
 $last_day = mktime(0, 0, 0, 6, 10, 2023); //$hour, $minute, $second, $month, $day, $year
 
 $percent = 100*($now-$first_day)/($last_day-$first_day);
+
+include "bouton.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -55,14 +57,15 @@ $percent = 100*($now-$first_day)/($last_day-$first_day);
 		Fin d'année : <b><?= date("d/m/Y", $last_day) ?></b><br>
 
 		<?php
-		//var_dump(phpCAS::getAttributes()); 
-		$memberOfCN = phpCAS::getAttributes()["memberOfCN"];
+		if($env != "LOCAL") {
+			$memberOfCN = phpCAS::getAttributes()["memberOfCN"];
 
-		foreach($memberOfCN as $i) {
-			if(strpos($i, "sve_2_mic") !== FALSE) {
-				echo "Vous en êtes à <b>".round(.$percent, 2)."%</b> de la MIC, félicitations !<br><br>";
-			} else {
-				echo "Vous en êtes à <b>".round(.$percent, 2)."%</b> de l'année, félicitations ! (Vous n'êtes pas en MIC donc la date de fin d'année ... je ne la connais pas)<br><br>";
+			foreach($memberOfCN as $i) {
+				if(strpos($i, "sve_2_mic") != FALSE) {
+					echo "Vous en êtes à <b>".round($percent, 2)."%</b> de la MIC, félicitations !<br><br>";
+				} else {
+					echo "Vous en êtes à <b>".round($percent, 2)."%</b> de l'année, félicitations ! (Vous n'êtes pas en MIC donc la date de fin d'année ... je ne la connais pas)<br><br>";
+				}
 			}
 		}
 		?>
@@ -73,7 +76,11 @@ $percent = 100*($now-$first_day)/($last_day-$first_day);
 
 		<br><br>
 
-		<a href="?logout=">Se déconnecter</a><br><br>
+		<?php  Button("En attendant si tu veux mes fiches", "ptites_fiches"); ?>
+
+		<br><br>
+
+		<?php  Button("Se déconnecter", "?logout="); ?>
 	</main>
 </body>
 </html>
