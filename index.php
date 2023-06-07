@@ -18,8 +18,8 @@ if($env == "LOCAL") {
 
 $now = strtotime("now");
 
-$first_day = mktime(0, 0, 0, 9, 12, 2022); //$hour, $minute, $second, $month, $day, $year
-$last_day = mktime(0, 0, 0, 6, 10, 2023); //$hour, $minute, $second, $month, $day, $year
+$first_day = mktime(8, 0, 0, 9, 12, 2022); //$hour, $minute, $second, $month, $day, $year
+$last_day = mktime(11, 45, 0, 6, 8, 2023); //$hour, $minute, $second, $month, $day, $year
 
 $percent = 100*($now-$first_day)/($last_day-$first_day);
 
@@ -52,9 +52,9 @@ include "bouton.php";
 <body>
 	<main>
 
-		Début d'année : <b><?= date("d/m/Y", $first_day) ?></b><br>
-		Date actuelle : <b><?= date("d/m/Y", $now) ?></b><br>
-		Fin d'année : <b><?= date("d/m/Y", $last_day) ?></b><br>
+		Début d'année : <b><?= date("d/m/Y H:i:s", $first_day) ?></b><br>
+		Date actuelle : <b><?= date("d/m/Y H:i:s", $now) ?></b><br>
+		Fin d'année : <b><?= date("d/m/Y H:i:s", $last_day) ?></b><br>
 
 		<?php
 		if($env != "LOCAL") {
