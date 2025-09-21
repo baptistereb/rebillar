@@ -18,8 +18,8 @@ if($env == "LOCAL") {
 
 $now = strtotime("now");
 
-$first_day = mktime(8, 0, 0, 9, 12, 2022); //$hour, $minute, $second, $month, $day, $year
-$last_day = mktime(11, 45, 0, 6, 8, 2023); //$hour, $minute, $second, $month, $day, $year
+$first_day = mktime(11, 0, 0, 9, 22, 2025); //$hour, $minute, $second, $month, $day, $year
+$last_day = mktime(14, 15, 0, 1, 27, 2026); //$hour, $minute, $second, $month, $day, $year
 
 $percent = 100*($now-$first_day)/($last_day-$first_day);
 
